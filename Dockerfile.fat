@@ -1,0 +1,22 @@
+FROM python:3.9
+
+# Install system dependencies needed for some Python packages
+RUN apt-get update && apt-get install -y --no-install-recommends libglib2.0-0 libsm6 libxrender1 libxext6 && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --upgrade pip
+
+# Set working directory
+RUN mkdir -p /data
+COPY example.jpg /data/
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY requirements.txt .
+
+COPY traced_model.pt .
+COPY inference.py .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENTRYPOINT ["python", "inference.py"]
