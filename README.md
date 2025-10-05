@@ -1,1 +1,1 @@
-# goit-mlops
+# GoIT-MLOps. HW
