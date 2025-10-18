@@ -72,11 +72,25 @@ kubectl -n infra-tools get secret argocd-initial-admin-secret -o jsonpath="{.dat
 ```
 #### 1.2.6. Відкриваємо `ArgoCD` GUI в нашому браузері за адресою [http://localhost:8080](http://localhost:8080)
 
+![ArgoCD start](./pictures/argo_start.png)
+
 ## 2. Завдання: створіть окремий Git-репозиторій з Helm-деплоєм
 
-Створено git-репозиторій [https://github.com/maximus-ms/goit-argo.git](https://github.com/maximus-ms/goit-argo) зі спеціальною гілкою [hw-lesson-7](https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7) саме для виконання цоьго домашнього завдання.
+Створено git-репозиторій `goit-argo` зі спеціальною гілкою саме для виконання цоьго домашнього завдання.
 
-В git-репозиторії у віповідній гілці додано апплікації `demo-nginx` та `mlflow`.
+[https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7](https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7)
+
+В репозиторії додано апплікації <a href="https://github.com/maximus-ms/goit-argo/blob/hw-lesson-7/namespace/application/demo-nginx.yaml" target="_blank">`demo-nginx`</a> та <a href="https://github.com/maximus-ms/goit-argo/blob/hw-lesson-7/namespace/application/mlflow/mlflow.yaml" target="_blank">`mlflow`</a>
+
+
+Зайдемо в `ArgoCD` перевіримо чи запустилися застосунки.
+![ArgoCD apps](./pictures/argo_apps.png)
+
+Схема застосунку `demo-nginx`
+![ArgoCD nginx](./pictures/argo_nginx.png)
+
+Схема застосунку `MLFlow`
+![ArgoCD mlflow](./pictures/argo_mlflow.png)
 
 ### 2.1. Перевіримо порти цих апплікацій (використовуємо неймспейс `application`)
 ```bash
@@ -88,13 +102,16 @@ NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
 demo-nginx   ClusterIP   10.106.165.104   <none>        80/TCP    146m
 mlflow       ClusterIP   10.110.0.167     <none>        80/TCP    137m
 ```
-### 2.2. Прокинемо порти до наших застосунків
+### 2.2. Прокинемо порти до наших застосунків і перевіримо їх роботу в браузері
 
 **Nginx:**
 ```bash
 kubectl port-forward -n application deployment/demo-nginx 8800:80
 ```
+![nginx start](./pictures/nginx_start.png)
+
 **MLFlow:**
 ```bash
 kubectl port-forward -n application svc/mlflow 8880:80
 ```
+![mlflow start](./pictures/mlflow_start.png)
