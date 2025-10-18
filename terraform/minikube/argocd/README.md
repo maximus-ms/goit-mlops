@@ -70,13 +70,15 @@ kubectl port-forward svc/argocd-server -n infra-tools 8080:80
 ```bash
 kubectl -n infra-tools get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo
 ```
-#### 1.2.6. Відкриваємо `ArgoCD` GUI в нашому браузері за адресою [http://localhost:8080](http://localhost:8080)
+#### 1.2.6. Відкриваємо `ArgoCD` GUI в нашому браузері за адресою
+
+<a href="http://localhost:8080" target="_blank">`http://localhost:8080`</a>
 
 ![ArgoCD start](./pictures/argo_start.png)
 
 ## 2. Завдання: створіть окремий Git-репозиторій з Helm-деплоєм
 
-Створено git-репозиторій `goit-argo` зі спеціальною гілкою саме для виконання цоьго домашнього завдання.
+Створено git-репозиторій `goit-argo` зі спеціальною гілкою саме для виконання цього домашнього завдання.
 
 [https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7](https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7)
 
