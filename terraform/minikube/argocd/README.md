@@ -72,7 +72,7 @@ kubectl -n infra-tools get secret argocd-initial-admin-secret -o jsonpath="{.dat
 ```
 #### 1.2.6. Відкриваємо `ArgoCD` GUI в нашому браузері за адресою
 
-<a href="http://localhost:8080" target="_blank">`http://localhost:8080`</a>
+[http://localhost:8080](http://localhost:8080)
 
 ![ArgoCD start](./pictures/argo_start.png)
 
@@ -82,7 +82,7 @@ kubectl -n infra-tools get secret argocd-initial-admin-secret -o jsonpath="{.dat
 
 [https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7](https://github.com/maximus-ms/goit-argo/tree/hw-lesson-7)
 
-В репозиторії додано апплікації <a href="https://github.com/maximus-ms/goit-argo/blob/hw-lesson-7/namespace/application/demo-nginx.yaml" target="_blank">`demo-nginx`</a> та <a href="https://github.com/maximus-ms/goit-argo/blob/hw-lesson-7/namespace/application/mlflow/mlflow.yaml" target="_blank">`mlflow`</a>
+В репозиторії додано апплікації [demo-nginx](https://github.com/maximus-ms/goit-argo/blob/hw-lesson-7/namespace/application/demo-nginx.yaml) та [mlflow](https://github.com/maximus-ms/goit-argo/blob/hw-lesson-7/namespace/application/mlflow/mlflow.yaml)
 
 
 Зайдемо в `ArgoCD` перевіримо чи запустилися застосунки.
