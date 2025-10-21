@@ -1,0 +1,16 @@
+stages:
+ - train
+
+train-model:
+ stage: train
+ image:
+  name: amazon/aws-cli
+  entrypoint: [""]
+ script:
+  - echo "🚀 Starting ML pipeline via Step Function"
+  - >
+    aws stepfunctions start-execution
+    --region us-east-1
+    --state-machine-arn arn:aws:states:us-east-1:565493866235:stateMachine:MLOpsPipeline
+    --name "training-$(date +%s)"
+    --input "{\"source\":\"gitlab-ci\", \"commit\":\"$CI_COMMIT_SHORT_SHA\"}"
